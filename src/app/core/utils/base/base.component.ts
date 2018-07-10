@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-@Component({})
 export class BaseComponent implements OnDestroy {
   protected unsubscribe = new Subject<void>();
 

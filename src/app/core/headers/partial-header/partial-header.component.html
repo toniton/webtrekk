@@ -6,9 +6,9 @@
     <div *ngIf="searchOverlay" class="modal-backdrop show"></div>
     <form class="form my-0" #form="ngForm" (ngSubmit)="onSubmit(form)" autocomplete="off" novalidate>
       <div class="form-group mb-0">
-        <div class="input-group search-bar" [class.is-invalid]="(person.errors && person.dirty) || (person.errors && person.touched)">
-          <input aria-describedby="personHelp" class="form-control" [class.is-invalid]="(person.errors && person.dirty) || (person.errors && person.touched)"
-            id="name" name="name" placeholder="Search customer" type="search" [(ngModel)]="model.name" #person="ngModel" (input)="searchType($event.target.value)"
+        <div class="input-group search-bar" [class.is-invalid]="(customer.errors && customer.dirty) || (customer.errors && customer.touched)">
+          <input aria-describedby="customerHelp" class="form-control" [class.is-invalid]="(customer.errors && customer.dirty) || (customer.errors && customer.touched)"
+            id="name" name="name" placeholder="Search customer" type="search" [(ngModel)]="model.name" #customer="ngModel"
             (focus)="setSearchOverlayStatus(true)" (focusout)="setSearchOverlayStatus(false)" required/>
           <i class="fa fas fa-search"></i>
         </div>
