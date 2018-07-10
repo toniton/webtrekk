@@ -1,0 +1,58 @@
+<div id="home">
+    <div class="d-flex justify-content-between align-items-center my-3">
+        <h3 class="home-title">Customers</h3>
+        <button class="btn btn-primary pulsate" type="button" (click)="addCustomer.show()">Add Customer</button>
+    </div>
+    <app-filter-bar></app-filter-bar>
+    <div class="content my-3" [@flyInOutList]="customers.length" *ngIf="(customers$ | async); let customers else loadingPeople">
+        <div *ngIf="customers.length === 0">
+            <h3>No results found</h3>
+        </div>
+        <div class="card-columns">
+            <app-card-item [item]="customer" *ngFor="let customer of customers" (onEdit)="gotoDetails(customer)" (onDelete)="showDeleteModal(customer)"></app-card-item>
+            <div class="display-4" *ngIf="customers.count === 0">No results for people</div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <span class="font-weight-bold">
+                    {{ itemsCount }}
+                </span>
+                of {{ totalCount}} Total
+            </div>
+            <div class="col">
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item" [class.disabled]="!previous">
+                            <a class="page-link previous" href="javascript:;" tabindex="-1" (click)="loadPage(previous)">
+                                <div>
+                                    <i class="fa fa-arrow-left"></i>
+                                    <span class="">Previous</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="page-item" [class.disabled]="!next">
+                            <a class="page-link next" href="javascript:;" (click)="loadPage(next)">
+                                <div>
+                                    <span class="">Next</span>
+                                    <i class="fa fa-arrow-right"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <ng-template #loadingPeople>
+        <div class="lead my-5">
+            <div class="loader">Loading
+                <span class="loader-dot">.</span>
+                <span class="loader-dot">.</span>
+                <span class="loader-dot">.</span>
+            </div>
+        </div>
+    </ng-template>
+</div>
+<app-add #addCustomer (onSubmitted)="loadPage(currentPage)"></app-add>
+<app-delete #deleteCustomer (onDeleted)="loadPage(currentPage)"></app-delete>

@@ -1,0 +1,44 @@
+<div class="filter-bar clearfix my-2">
+  <div class="row">
+    <div class="col filter-menu">
+      <div class="float-left">
+        <a class="btn btn-link" role="button" data-toggle="collapse" href="#filter" role="button" aria-expanded="false" aria-controls="filter">
+          <i class="fa fa-filter"></i>Filter
+        </a>
+      </div>
+      <a class="btn btn-link float-right" href="javascript:;" (click)="initPeople()">Clear</a>
+    </div>
+  </div>
+  <div class="row filter-body">
+    <div class="col">
+      <div class="collapse multi-collapse" id="filter">
+        <div class="btn-group">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Sort
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="javascript:;">
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" id="ascending">
+                  <label class="form-check-label" for="ascending">
+                    Ascending
+                  </label>
+                </div>
+              </a>
+              <a class="dropdown-item" href="javascript:;">
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" id="descending">
+                  <label class="form-check-label" for="descending">
+                    Descending
+                  </label>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

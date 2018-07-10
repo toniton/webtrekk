@@ -1,0 +1,19 @@
+<div class="card" style="min-width: 16rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ item?.name?.first }} {{ item?.name?.last }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted"> {{ formatDateOfBirth(item?.birthday) }}</h6>
+    <p class="card-text"> {{ item?.customerLifetimeValue }}</p>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex justify-content-end">
+      <div class="d-inline-block card-button-group">
+        <button type="button" class="btn" (click)="editClicked($event)">
+          <i class="fa far fa-pencil"></i>
+        </button>
+        <button type="button" class="btn" (click)="deleteClicked($event)">
+          <i class="fa far fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

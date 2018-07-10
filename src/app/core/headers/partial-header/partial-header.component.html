@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light">
+  <div class="container-fluid w-100">
+    <a class="navbar-brand" routerLink="/">
+      <img class="logo" src="assets/images/webtrekk-logo.png" alt="Webtrekk" />
+    </a>
+    <div *ngIf="searchOverlay" class="modal-backdrop show"></div>
+    <form class="form my-0" #form="ngForm" (ngSubmit)="onSubmit(form)" autocomplete="off" novalidate>
+      <div class="form-group mb-0">
+        <div class="input-group search-bar" [class.is-invalid]="(person.errors && person.dirty) || (person.errors && person.touched)">
+          <input aria-describedby="personHelp" class="form-control" [class.is-invalid]="(person.errors && person.dirty) || (person.errors && person.touched)"
+            id="name" name="name" placeholder="Search customer" type="search" [(ngModel)]="model.name" #person="ngModel" (input)="searchType($event.target.value)"
+            (focus)="setSearchOverlayStatus(true)" (focusout)="setSearchOverlayStatus(false)" required/>
+          <i class="fa fas fa-search"></i>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>

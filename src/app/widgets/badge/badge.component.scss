@@ -1,0 +1,39 @@
+#beta-badge {
+    top: 200px;
+    position: fixed;
+    z-index: 9999;
+    &.left {
+        left: 0;
+        margin-left: -1px;
+        a {
+            background-image: url('../../../assets/images/beta-badge.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+    a {
+        width: 36px;
+        height: 58px;
+        display: block;
+        text-indent: -8e3px;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), not all, not all, not all {
+    #beta-badge.left a {
+        background-image: url('../../../assets/images/beta-badge.svg');
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), not all, not all, not all {
+    #beta-badge a {
+        -moz-background-size: 70px 105px;
+        -ie-background-size: 70px 105px;
+        -o-background-size: 70px 105px;
+        -webkit-background-size: 70px 105px;
+        background-size: 70px 105px;
+    }
+}

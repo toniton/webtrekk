@@ -1,0 +1,9 @@
+<div *ngFor="let alert of alerts" class="{{ cssClass(alert) }} alert-dismissable" [@flyInOut]>
+  {{alert.message}}
+  <a class="close" (click)="removeAlert(alert)" *ngIf="alert.customIcon !==''; else closeIcon">
+    <i [class]="alert.customIcon"></i>
+  </a>
+  <ng-template #closeIcon>
+    <a class="close" (click)="removeAlert(alert)">&times;</a>
+  </ng-template>
+</div>

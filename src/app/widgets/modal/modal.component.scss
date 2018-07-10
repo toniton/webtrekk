@@ -1,0 +1,8 @@
+.modal {
+    opacity: 1;
+    .modal-content {
+        background-image: linear-gradient(180deg, rgba(255,255,255,0) 54%, #fff),linear-gradient(70deg, #dbedff 30%, #ebfff0);
+        background-size: auto 60px;
+        background-repeat: no-repeat;
+    }
+}

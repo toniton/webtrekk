@@ -1,0 +1,86 @@
+<app-modal backdrop="static">
+  <div class="modal-header">
+    <h5 class="modal-title">Add Customer</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form #addForm="ngForm" class="mt-0" (ngSubmit)="submitForm(model)">
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstname">Firstname</label>
+          <input type="text" class="form-control" [class.is-invalid]="firstname.errors && firstname.touched" #firstname="ngModel" [(ngModel)]="model.name.first"
+            id="firstname" name="firstname" placeholder="Firstname" required/>
+          <div *ngIf="firstname.errors && firstname.touched" class="invalid-feedback">
+            Please provide a valid firstname.
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastname">Surname</label>
+          <input type="text" class="form-control" [class.is-invalid]="lastname.errors && lastname.touched" #lastname="ngModel" [(ngModel)]="model.name.last"
+            id="lastname" name="lastname" placeholder="Surname" required/>
+          <div *ngIf="lastname.errors && lastname.touched" class="invalid-feedback">
+            Please provide a valid lastname.
+          </div>
+        </div>
+      </div>
+      <fieldset class="form-group">
+        <legend class="col-form-label" [class.is-invalid]="gender.errors && gender.touched">Gender</legend>
+        <div class="d-inline">
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" #gender="ngModel" [(ngModel)]="model.gender" id="female" name="gender" value="f"
+              required/>
+            <label class="form-check-label" for="female">
+              Female
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" #gender="ngModel" [(ngModel)]="model.gender" id="male" name="gender" value="m"
+              required/>
+            <label class="form-check-label" for="male">
+              Male
+            </label>
+          </div>
+        </div>
+        <div *ngIf="gender.errors && gender.touched">
+          Gender is required.
+        </div>
+      </fieldset>
+      <div class="form-row justify-content-between">
+        <div class="form-group col-md-6">
+          <label for="date-of-birth">Date of Birth</label>
+          <input type="text" class="form-control" [class.is-invalid]="birthday.errors && birthday.touched" #birthday="ngModel" [(ngModel)]="model.birthday"
+            id="date-of-birth" name="birthday" autocomplete="off" appDatePicker required/>
+          <div *ngIf="birthday.errors && birthday.touched" class="invalid-feedback">
+            Please provide a valid birthday.
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="lifetime-value">Lifetime Value</label>
+          <input type="number" class="form-control" [class.is-invalid]="lifetime.errors && lifetime.touched" #lifetime="ngModel" [(ngModel)]="model.customerLifetimeValue"
+            id="lifetime-value" name="lifetime" />
+          <div *ngIf="lifetime.errors && lifetime.touched" class="invalid-feedback">
+            Please provide a valid lifetime.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check pl-0">
+          <input class="form-check-input is-valid d-none" type="checkbox" value="yes" id="valid-check" checked required>
+          <label class="form-check-label text-success" for="valid-check">
+            Terms and Conditions
+          </label>
+          <div class="valid-feedback text-muted">
+            By clicking the submit button, you agree to the following
+            <a href="javascript:;">Terms and Conditions</a>, that all the information provided here are valid.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" type="submit" [disabled]="!addForm.form.valid" [loading]="formLoading">Save changes</button>
+    </div>
+  </form>
+</app-modal>

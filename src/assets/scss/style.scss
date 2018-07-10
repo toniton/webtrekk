@@ -1,0 +1,64 @@
+
+$simple-line-font-path:  '../../../node_modules/simple-line-icons/fonts/';
+$fa-font-path: '../../../node_modules/font-awesome/fonts';
+
+@import "loader";
+@import "hamburgers";
+@import "animations";
+@import "variables";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+@import "../../../node_modules/simple-line-icons/scss/simple-line-icons";
+
+app-root, app-body {
+    transform-origin: 0 0;
+}
+
+.display-5 {
+    font-size: $display5-size;
+    font-weight: $display4-weight;
+    line-height: $display-line-height;
+}
+
+input {
+    &:-webkit-autofill {
+        background: none !important;
+    }
+}
+
+.input-group.is-invalid {
+    ~ .invalid-feedback {
+        display: block;
+    }
+}
+
+.input-group-btn {
+    >.btn-outline-secondary {
+        color: $body-color !important;
+        border: 1px solid #ced4da !important;
+        &:hover {
+            background: transparent !important;
+            color: $body-color !important;
+        }
+        &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled).active {
+            border-color: rgba(0,0,0,.15) !important;
+            background: transparent !important;
+            color: $body-color !important;
+        }
+    }
+    &.show > .dropdown-toggle {
+        border-color: rgba(0,0,0,.15) !important;
+        background: transparent !important;
+        color: $body-color !important;
+    }
+}
+
+.modal-backdrop { 
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card-columns {
+    @include media-breakpoint-up(lg) {
+        column-count: 4;
+    }
+}
