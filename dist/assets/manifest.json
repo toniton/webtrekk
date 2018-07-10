@@ -1,0 +1,24 @@
+{
+  "name": "Pawa by Paytron",
+  "short_name": "Pawa",
+  "icons": [
+    {
+      "src": "launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "launcher-icon-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "background_color": "#4099d8",
+  "display": "standalone",
+  "start_url": "index.html?launcher=true"
+}

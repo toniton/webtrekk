@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "server": "node server.js",
+    "server": "ng build && node server.js",
     "build": "ng build",
     "test": "ng test --sourcemaps=false",
     "lint": "ng lint",

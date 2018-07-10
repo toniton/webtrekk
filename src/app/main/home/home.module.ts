@@ -9,7 +9,6 @@ import { WidgetsModule } from '../../widgets/widgets.module';
 import { UtilityModule } from '../../utility/utility.module';
 import { DeleteComponent } from './modals/delete/delete.component';
 import { AddComponent } from './modals/add/add.component';
-import { HomeCcomponentComponent } from './home-ccomponent/home-ccomponent.component';
 
 @NgModule({
   imports: [
@@ -21,6 +20,6 @@ import { HomeCcomponentComponent } from './home-ccomponent/home-ccomponent.compo
     UtilityModule,
     MinMaxModule
   ],
-  declarations: [HomeComponent, DeleteComponent, AddComponent, HomeCcomponentComponent],
+  declarations: [HomeComponent, DeleteComponent, AddComponent],
 })
 export class HomeModule { }

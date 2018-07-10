@@ -1,0 +1,169 @@
+// Bootstrap overrides
+//
+// Copy variables from `_variables.scss` to this file to override default values
+// without modifying source files.
+
+// Body
+//
+// Settings for the `<body>` element.
+
+
+@import "../fonts/GalanoGrotesque/galano";
+
+$white:  #ffffff;
+$blue:   #001f39;
+$gray: #ededed;
+$lightgray: #f7f7f7;
+$pink : #F15C5D;
+$orange: #E95207;
+$green: #419a59;
+
+// Create grayscale
+// $gray-dark:                 #5a5959;
+// $gray:                      #464a4c !default;
+// $hover-gray:                #9a9393;
+// $gray-light:                rgba(0,0,0,0.15);
+// $gray-lighter:              #eceeef !default;
+// $gray-lightest:             #f7f7f9 !default;
+
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #c0c1c1;
+$gray-500: #adb5bd !default;
+$gray-600: #545454; // label
+$gray-700: #3b3f42 !default;
+$gray-800: #33363a !default;
+$gray-900: #1f1d1d; // body
+
+// Reassign color vars to semantic color scheme
+$body-bg:       $lightgray;
+$primary:       $gray-500;
+$link-color:    $gray-600;
+
+.text-light-gray {
+  color: #a0a0a0;
+}
+
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: 'galano','Open Sans', sans-serif;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif;
+
+$font-size-base: 0.8125rem; // Assumes the browser default, typically `13px`
+
+$font-weight-normal: 300;
+
+$navbar-light-color:                rgba($gray,.5);
+// $navbar-light-hover-color:          rgba($hover-gray,.8);
+$navbar-light-active-color:         rgba($gray,.9);
+$navbar-light-disabled-color:       rgba($gray,.3);
+$navbar-light-toggler-color: rgba(0,0,0,0.8);
+$navbar-light-toggler-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-toggler-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"), "#", "%23");
+$navbar-light-toggler-border:       transparent;
+
+$border-radius: 5px;
+$btn-border-radius: 35px;
+$btn-border-radius-sm: 8px;
+$btn-border-radius-lg: 90px;
+
+// $btn-line-height:                1.25 !default;
+
+$btn-primary-border: transparent;
+
+$btn-focus-box-shadow: none; 
+$btn-active-box-shadow: none;
+
+$card-border-radius:       $border-radius;
+$list-group-border-radius:       $border-radius;
+
+$input-btn-padding-x: 1.25rem;
+$input-btn-padding-y:.65rem;
+
+body {
+  background: $body-bg;
+}
+
+$display1-size:               5.5rem;
+$display2-size:               4.5rem;
+$display3-size:               3.5rem;
+$display4-size:               2.5rem;
+$display5-size:               2rem;
+
+$paragraph-margin-bottom:   0.8125rem !default;
+
+.input-group-append > .btn,
+.input-group-prepend > .btn {
+  border-color:  #ced4da !important;
+}
+
+.input-group-prepend > .btn {
+  border-top-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
+}
+
+.input-group-append > .btn {
+  border-top-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
+}
+.input-group.is-invalid .btn,
+.is-invalid~.input-group-prepend, 
+.was-validated .form-control:invalid~.input-group-prepend {
+  border-color: #dc3545 !important;
+}
+
+.is-invalid~.input-group-prepend, 
+.was-validated .form-control:invalid~.input-group-prepend {
+  border-color: #dc3545;
+}
+
+.btn {
+  font-size: 12px !important;
+  letter-spacing: 0.6px !important;
+  &.btn-primary {
+    background: $green !important;
+    border-color: $green;
+    color: $white !important;
+  }
+  &.btn-md {
+    font-size: 14px !important;
+  }
+  &.btn-lg {
+    font-size: 18px !important;
+  }
+  &.btn-link {
+    text-decoration: none !important;
+  }
+  &.collapsed {
+    color: $green !important
+  }
+}
+
+// Spacing:
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3),
+  6: ($spacer * 4.5)
+);
+
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
